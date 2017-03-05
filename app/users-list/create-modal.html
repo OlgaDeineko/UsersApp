@@ -1,0 +1,72 @@
+<div class="modal-body"><div>{{$ctrl.greeting}}</div>
+    <form name="userForm" role="form" ng-submit="$ctrl.addUser()" >
+        <div class="form-group">
+            <label>Name:</label>
+            <input type="text" class="form-control" ng-change="$ctrl.verifyDuplicate(this)" name="personName" ng-model="$ctrl.newUser.name" placeholder="Name" required>
+            <div class='error' ng-show='userForm.personName.$invalid && userForm.personName.$error.duplicate'></div>
+        </div>
+        <div class="form-group">
+            <label>User name:</label>
+            <input type="text" class="form-control" ng-change="$ctrl.verifyDuplicate(this)" ng-model="$ctrl.newUser.username" placeholder="User name" required>
+        </div>
+        <div class="form-group">
+            <label>Email:</label>
+            <input type="email" class="form-control" ng-change="$ctrl.verifyDuplicate(this)" ng-model="$ctrl.newUser.email" placeholder="Email" required>
+        </div>
+        <div class="form-group">
+            <label>Address Street:</label>
+            <input type="text" class="form-control"  ng-model="$ctrl.newUser.address.street" placeholder="Address Street">
+        </div>
+        <div class="form-group">
+            <label>Address Suite:</label>
+            <input type="text" class="form-control"  ng-model="$ctrl.newUser.address.suite" placeholder="Address Suit">
+        </div>
+
+        <div class="form-group">
+            <label>Address City:</label>
+            <input type="text" class="form-control"  ng-model="$ctrl.newUser.address.city" placeholder="Address City">
+        </div>
+        <div class="form-group">
+            <label>Address Zipcode:</label>
+            <input type="number" class="form-control"  ng-model="$ctrl.newUser.address.zipcode" placeholder="Address Zipcode">
+        </div>
+        <!--<ng-map id="map" center="-25.363882,131.044922" zoom="4" on-click="getpos($event)">-->
+            <!--<marker position="{{latlng}}" title="Hello World!" on-dragend="getpos($event)"-->
+                    <!--animation="Animation.BOUNCE" animation="DROP" draggable="true"></marker>-->
+        <!--</ng-map>-->
+        <div class="form-group">
+            <label>Latitude:</label>
+            <input class="form-control"  ng-model="$ctrl.newUser.address.geo.lat" placeholder="Latitude">
+        </div>
+        <div class="form-group">
+            <label>Longitude:</label>
+            <input class="form-control"  ng-model="$ctrl.newUser.address.geo.lng" placeholder="Longitude">
+        </div>
+
+        <div class="form-group">
+            <label>Phone:</label>
+            <input type="tel" class="form-control" name="phone" ng-pattern="/(^\(?\d{1,3}\)?\-?\.?\d{3}\-?\.?.*)/" ng-model="$ctrl.newUser.phone" placeholder="Phone">
+        </div>
+        <p ng-show="userForm.phone.$invalid && !userForm.phone.$pristine" class="help-block">Enter a valid phone!</p>
+        <div class="form-group">
+            <label>Website:</label>
+            <input type="text" class="form-control"  ng-pattern="/[a-z]\.[a-z]{1,3}/" ng-model="$ctrl.newUser.website" placeholder="Website" name="website">
+        </div>
+        <p ng-show="userForm.website.$invalid && !userForm.website.$pristine" class="help-block">Enter a valid website &lt;website_namep&gt.&lt;domainp&gt</p>
+        <div class="form-group">
+            <label>Company Name:</label>
+            <input type="text" class="form-control" ng-change="$ctrl.verifyDuplicate(this)" ng-model="$ctrl.newUser.company.name" placeholder="Company Name" required>
+        </div>
+        <div class="form-group">
+            <label>Company Catch Pahrase:</label>
+            <input type="text" class="form-control"  ng-model="$ctrl.newUser.company.catchPhrase" placeholder="Company Catch Pahrase">
+        </div>
+        <div class="form-group">
+            <label>Company Bs:</label>
+            <input type="text" class="form-control"  ng-model="$ctrl.newUser.company.bs" placeholder="Company Bs">
+        </div>
+
+        <button class="btn btn-success" type="submit" value="Add note">Add user</button>
+        <button class="btn btn-warning" type="button" ng-click="$ctrl.handleClose()">Close</button>
+    </form>
+</div>

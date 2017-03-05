@@ -1,0 +1,56 @@
+<div class="modal-body"><div>{{$ctrl.greeting}}</div>
+    <form role="form" ng-submit="$ctrl.updateUser()" >
+        <div class="form-group">
+            <label>Name:</label>
+            <input class="form-control"  ng-model="$ctrl.modalData.name">
+        </div>
+        <div class="form-group">
+            <label>User name:</label>
+            <input class="form-control"  ng-model="$ctrl.modalData.username">
+        </div>
+        <div class="form-group">
+            <label>Email:</label>
+            <input class="form-control"  ng-model="$ctrl.modalData.email">
+        </div>
+        <div class="form-group">
+            <label>Address Street:</label>
+            <input class="form-control"  ng-model="$ctrl.modalData.address.street">
+        </div>
+        <div class="form-group">
+            <label>Address Suite:</label>
+            <input class="form-control"  ng-model="$ctrl.modalData.address.suite">
+        </div>
+
+        <div class="form-group">
+            <label>Address City:</label>
+            <input class="form-control"  ng-model="$ctrl.modalData.address.city">
+        </div>
+        <div class="form-group">
+            <label>Address Zipcode:</label>
+            <input class="form-control"  ng-model="$ctrl.modalData.address.zipcode">
+        </div>
+        <div class="form-group">
+            <label>Phone:</label>
+            <input class="form-control"  ng-model="$ctrl.modalData.phone">
+        </div>
+        <div class="form-group">
+            <label>Website:</label>
+            <input class="form-control"  ng-model="$ctrl.modalData.website">
+        </div>
+        <div class="form-group">
+            <label>Company Name:</label>
+            <input class="form-control"  ng-model="$ctrl.modalData.company.name">
+        </div>
+        <div class="form-group">
+            <label>Company Catch Pahrase:</label>
+            <input class="form-control"  ng-model="$ctrl.modalData.company.catchPhrase">
+        </div>
+        <div class="form-group">
+            <label>Company Bs:</label>
+            <input class="form-control"  ng-model="$ctrl.modalData.company.bs">
+        </div>
+
+        <button class="btn btn-success" type="submit" value="Update user">Update user</button>
+        <button class="btn btn-warning" type="button" ng-click="$ctrl.handleClose()">Close</button>
+    </form>
+</div>

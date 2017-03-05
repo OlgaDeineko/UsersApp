@@ -1,0 +1,44 @@
+.users  {
+    font-family: "Lucida Sans Unicode", "Lucida Grande", Sans-Serif;
+    font-size: 14px;
+    background: white;
+    text-align: left;
+    border-collapse: collapse;
+    color: #3E4347;
+}
+
+.users  th {
+    font-weight: normal;
+    border-bottom: 2px solid #F5E1A6;
+    border-right: 20px solid white;
+    border-left: 20px solid white;
+    padding: 8px 10px;
+}
+.users  td {
+    border-right: 20px solid white;
+    border-left: 20px solid white;
+    padding: 12px 10px;
+    color: #8b8e91;
+}
+
+/*button.yellow {*/
+    /*float:right;*/
+    /*margin-top: 2px;*/
+    /*margin-right: .8em;*/
+    /*color:khaki;*/
+    /*background-color: transparent;*/
+    /*border:1px solid khaki;*/
+    /*float:left;*/
+/*}*/
+
+button.yellow:hover {
+    background-color: khaki;
+    color:white;
+}
+
+button {
+    margin-top: 1rem;
+}
+.create_user {
+    margin: 2%;
+}

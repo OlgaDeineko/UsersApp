@@ -1,0 +1,78 @@
+<div class="container">
+<button type="button" class="create_user yellow btn pull-right" ng-click="$ctrl.open()">Create User</button>
+<div class="row">
+    <form class="form-inline">
+        <label>Search:</label>
+        <input class="form-control" ng-model="$ctrl.query[queryBy]" />
+
+        <label>Search By :</label>
+        <select class="form-control" ng-model="queryBy">
+            <option value="name">NAME</option>
+            <option value="username">USER NAME</option>
+            <option value="email">EMAIL</option>
+        </select>
+    </form>
+</div>
+<div class="row">
+    <form class="form-inline">
+        <label>Sort by:</label>
+        <select class="form-control" ng-model="$ctrl.orderProp">
+            <option value="name">Name</option>
+            <option value="username">Username</option>
+            <option value="email">Email</option>
+            <option value="address.street">Street</option>
+            <option value="company.name">Company name</option>
+        </select>
+        <label>&#8593;&#8595;</label>
+        <select class="form-control" ng-model="side">
+            <option value="+">&#8593;</option>
+            <option value="-">&#8595;</option>
+        </select>
+    </form>
+</div>
+</div>
+<div class="table-responsive">
+<table class="users">
+    <tr>
+        <th>Name</th>
+        <th>User name</th>
+        <th>Email</th>
+        <th>Address</th>
+        <th>Distance</th>
+        <th>Phone</th>
+        <th>Website</th>
+        <th>Company</th>
+    </tr>
+    <tr ng-repeat="user in $ctrl.users | filter:$ctrl.query | orderBy:[side]+$ctrl.orderProp" on-finish-render="ngRepeatFinished">
+        <td>{{user.name}}</td>
+        <td>{{user.username}}</td>
+        <td><p id="copyEmail{{user.id}}">{{user.email}}</p>
+            <button class="btn yellow" ngclipboard data-clipboard-target="#copyEmail{{user.id}}">Copy</button>
+        </td>
+        <td>
+            <label>Street:</label><br/>
+            {{user.address.street}}<br/>
+            <label>Suite:</label><br/>
+            {{user.address.suite}}<br/>
+            <label>City:</label><br/>
+            {{user.address.city}}<br/>
+            <label>Zipcode:</label><br/>
+            {{user.address.zipcode}}
+        </td>
+        <td  ng-bind="$ctrl.distance(user)"></td>
+        <td>{{user.phone}}</td>
+        <td>{{user.website}}</td>
+        <td>
+            <label>Company Name:</label><br/>
+            {{user.company.name}}<br/>
+            <label>Company Catch Pahrase:</label><br/>
+            {{user.company.catchPhrase}}<br/>
+            <label>Company Bs:</label><br/>
+            {{user.company.bs}}
+        </td>
+        <td><button class="yellow" ng-click="$ctrl.deleteUser(user)"><span class="glyphicon glyphicon-trash "></span></button>
+            <button class="yellow" ng-click="$ctrl.editUser(user)"><span class="glyphicon glyphicon-pencil "></span></button>
+        </td>
+    </tr>
+</table>
+</div>
